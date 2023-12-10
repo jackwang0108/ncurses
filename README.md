@@ -1,4 +1,4 @@
-[example](assets/ncurses.gif)
+![example](assets/ncurses.gif)
 
 # ncurses
 Codes for learning ncurses
