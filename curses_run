@@ -10,7 +10,7 @@ curses_run() {
 
     if [[ -x $executable_path ]]; then
         echo "Running $executable..."
-        "$executable_path"
+        "$executable_path" "$@"
     else
         echo "Executable $executable not found."
     fi

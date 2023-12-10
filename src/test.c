@@ -19,9 +19,9 @@ int main(int argc, char *argv[])
     // noecho();
     int prevStatus = curs_set(0);
 
-    char *ptr = "Hello, %s! PrevStatus: %d";
+    char *ptr = "Hello World !";
 
-    mvprintw(LINES / 2, (COLS - strlen(ptr)) / 2, ptr, "Jack Wang", prevStatus);
+    mvprintw(LINES / 2, (COLS - strlen(ptr)) / 2, "%s", ptr);
     // refresh();
 
     char ch;
