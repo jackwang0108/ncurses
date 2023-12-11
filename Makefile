@@ -4,7 +4,8 @@ CFLAGS := \
 
 LDFLAGS := \
 	-lncurses \
-	-lpanel
+	-lpanel \
+	-lmenu
 
 
 # 获取当前正在执行的makefile的绝对路径
