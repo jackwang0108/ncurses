@@ -44,10 +44,12 @@ int main()
 
     init_wins(my_wins, 3);
 
-    /* Attach a panel to each window */   /* Order is bottom up */
-    my_panels[0] = new_panel(my_wins[0]); /* Push 0, order: stdscr-0 */
-    my_panels[1] = new_panel(my_wins[1]); /* Push 1, order: stdscr-0-1 */
-    my_panels[2] = new_panel(my_wins[2]); /* Push 2, order: stdscr-0-1-2 */
+    /* Attach a panel to each window */ /* Order is bottom up */
+    // my_panels[0] = new_panel(my_wins[0]); /* Push 0, order: stdscr-0 */
+    // my_panels[1] = new_panel(my_wins[1]); /* Push 1, order: stdscr-0-1 */
+    // my_panels[2] = new_panel(my_wins[2]); /* Push 2, order: stdscr-0-1-2 */
+    for (int i = 0; i < sizeof(my_panels) / sizeof(PANEL *); i++)
+        my_panels[i] = new_panel(my_wins[i]);
 
     set_user_ptrs(my_panels, 3);
     /* Update the stacking order. 2nd panel will be on top */
@@ -66,11 +68,11 @@ int main()
     newy = top->y;
     neww = top->w;
     newh = top->h;
-    while ((ch = getch()) != KEY_F(1))
+    while ((ch = getch()) != KEY_F(2))
     {
         switch (ch)
         {
-        case 9: /* Tab */
+        case '\t': /* Tab */
             top = (PANEL_DATA *)panel_userptr(stack_top);
             top_panel(top->next);
             stack_top = top->next;
